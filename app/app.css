@@ -3,11 +3,17 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  /* Custom color palette */
+  --color-blue-950: #10141E;
+  --color-blue-900: #161D2F;
+  --color-blue-500: #5A698F;
+  --color-red-500: #FC4747;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-white dark:bg-blue-950;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
