@@ -1,10 +1,10 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { Home } from "../pages/home";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Home" }];
 }
 
-export default function Home() {
-  return <Welcome />;
+export default function Page() {
+  return <Home />;
 }
