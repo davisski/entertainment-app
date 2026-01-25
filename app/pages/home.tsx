@@ -1,8 +1,32 @@
-export function Welcome() {
+import mediumThumbnail from "../img/thumbnails/medium.jpg";
+import { useTheme } from "../contexts/ThemeContext";
+
+export function Home() {
+  const { isDark } = useTheme();
+  const maxRecommended = 16;
+  
   return (
+    <>
     <div>
-        Welcome
+        <h1>Trending</h1>
     </div>
+    <div className="flex flex-col gap-y-10">
+        <h2>Recommended for you</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pr-8">
+          {Array.from({ length: maxRecommended }).map((_, index) => (
+            <div
+              key={index}
+              className={`${isDark ? 'bg-gray-900' : 'bg-white-300'} h-57.5 justify-between rounded-lg flex flex-col items-center overflow-hidden`}
+            >
+              <img src={mediumThumbnail} className="w-full h-43.5 block" alt="Thumbnail" />
+              <span className="text-gray-800 dark:text-gray-200">
+                Movie {index + 1}
+              </span>
+            </div>
+          ))}
+        </div>
+    </div>
+    </>
   );
 }
 
