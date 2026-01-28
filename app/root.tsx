@@ -52,7 +52,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
               <img src={Logo} alt="Logo" className="lg:mb-6 mb-0 w-8"/>
               <ul className="m-0 flex lg:flex-col flex-row justify-center items-center lg:gap-y-10 gap-x-5 grow">
                 <li className="text-white">
-                  <Link to="/home">
+                  <Link to="/">
                     <img className="w-5" src={HomeIcon} alt="Home" />
                   </Link>
                 </li>
@@ -62,12 +62,12 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
                   </Link>
                 </li>
                 <li className="text-white">
-                  <Link to="/tv-shows">
+                  <Link to="/tv-series">
                     <img className="w-5"  src={CategoryTV} alt="TV Series" />
                   </Link>
                 </li>
                 <li className="text-white">
-                  <Link to="/tv-shows">
+                  <Link to="/bookmarks">
                     <img className="w-5" src={Bookmark} alt="Bookmark" />
                   </Link>
                 </li>
