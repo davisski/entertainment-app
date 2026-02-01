@@ -1,7 +1,6 @@
 import { EntertainmentCard } from "../components/EntertainmentCard";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-import largeThumbnail from "../img/thumbnails/large.jpg";
+import { TrendingCardComponent } from "~/components/TrendingCardComponent";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -11,7 +10,7 @@ import 'swiper/css/scrollbar';
 
 export function Home() {
   const maxRecommended = 16;
-  
+
   return (
     <>
       <div className="mb-6">
@@ -28,36 +27,19 @@ export function Home() {
           className="overflow-visible!"
         >
       <SwiperSlide className="w-117.5!">
-        <div 
-          className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full flex items-center justify-center bg-cover bg-center"
-          style={{ backgroundImage: `url(${largeThumbnail})` }}
-        >
-          {/* Content here */}
-        </div>
+        <TrendingCardComponent />
       </SwiperSlide>
       <SwiperSlide className="w-117.5!">
-        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${largeThumbnail})` }}>
-
-        </div>
+        <TrendingCardComponent />
       </SwiperSlide>
       <SwiperSlide className="w-117.5!">
-        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${largeThumbnail})` }}>
-
-        </div>
+        <TrendingCardComponent />
       </SwiperSlide>
       <SwiperSlide className="w-117.5!">
-        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${largeThumbnail})` }}>
-
-        </div>
+        <TrendingCardComponent />
       </SwiperSlide>
       <SwiperSlide className="w-117.5!">
-        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${largeThumbnail})` }}>
-
-        </div>
+        <TrendingCardComponent />
       </SwiperSlide>
     </Swiper>
       </div>
