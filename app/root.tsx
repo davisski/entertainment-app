@@ -7,13 +7,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
-import { useRef, useState } from "react";
-import Search from "./img/icon-search.svg";
+import { useRef } from "react";
 import Logo from "./img/logo.svg";
 
 import Avatar from "./img/image-avatar.png";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 import { NavigationComponent } from "./components/NaviagtionComponent";
+import { SearchComponent } from "./components/SearchComponent";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -81,10 +81,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <main className="w-full flex flex-col gap-y-10">
-          <div className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} h-8 gap-x-8 flex items-center mt-0 lg:mt-8`}>
-            <img src={Search} alt="Search" />
-            <input id="search-input" className={`opacity-50 py-1 w-9/10 ${isDark ? 'text-blue-500' : 'text-blue-500'}`} type="text" placeholder="Search for movies or TV series" />
-          </div>
+          <SearchComponent />
           <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full`}>
             {children}
           </section>
