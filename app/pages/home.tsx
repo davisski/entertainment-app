@@ -1,15 +1,69 @@
 import { EntertainmentCard } from "../components/EntertainmentCard";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import largeThumbnail from "../img/thumbnails/large.jpg";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+
 export function Home() {
   const maxRecommended = 16;
   
   return (
     <>
-      <div>
-          <h1>Trending</h1>
+      <div className="mb-6">
+          <h1 className="text-white text-[32px]">Trending</h1>
       </div>
-      <div className="flex flex-col gap-y-10">
-          <h2>Recommended for you</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pr-8">
+      <div className="mb-10 w-full overflow-hidden">
+        <Swiper
+          spaceBetween={80}
+          slidesPerView={2.5}
+          slidesOffsetAfter={160}
+          slidesOffsetBefore={0}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+          className="overflow-visible!"
+        >
+      <SwiperSlide className="w-117.5!">
+        <div 
+          className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full flex items-center justify-center bg-cover bg-center"
+          style={{ backgroundImage: `url(${largeThumbnail})` }}
+        >
+          {/* Content here */}
+        </div>
+      </SwiperSlide>
+      <SwiperSlide className="w-117.5!">
+        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: `url(${largeThumbnail})` }}>
+
+        </div>
+      </SwiperSlide>
+      <SwiperSlide className="w-117.5!">
+        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: `url(${largeThumbnail})` }}>
+
+        </div>
+      </SwiperSlide>
+      <SwiperSlide className="w-117.5!">
+        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: `url(${largeThumbnail})` }}>
+
+        </div>
+      </SwiperSlide>
+      <SwiperSlide className="w-117.5!">
+        <div className="w-full rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full bg-gray-300 flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: `url(${largeThumbnail})` }}>
+
+        </div>
+      </SwiperSlide>
+    </Swiper>
+      </div>
+      <div className="flex flex-col">
+          <h2 className="text-white text-[24px] mb-8">Recommended for you</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-10 pr-8">
             {Array.from({ length: maxRecommended }).map((_, index) => (
               <EntertainmentCard key={index} />
             ))}
@@ -60,3 +114,4 @@ const resources = [
     ),
   },
 ];
+
