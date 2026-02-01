@@ -16,6 +16,12 @@ import Bookmark from "./img/icon-bookmark-empty.svg";
 import HomeIcon from "./img/icon-nav-home.svg";
 import Avatar from "./img/image-avatar.png";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
+import { NavLink } from "react-router";
+
+import HomeActiveIcon from "./img/icon-nav-home-active.svg";
+import CategoryMovieActive from "./img/icon-nav-movies-active.svg";
+import CategoryTVActive from "./img/icon-nav-tv-series-active.svg";
+import BookmarkActive from "./img/icon-nav-bookmark-active.svg";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -52,24 +58,40 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
               <img src={Logo} alt="Logo" className="lg:mb-6 mb-0 w-8"/>
               <ul className="m-0 flex lg:flex-col flex-row justify-center items-center lg:gap-y-10 gap-x-5 grow">
                 <li className="text-white">
-                  <Link to="/">
-                    <img className="w-5" src={HomeIcon} alt="Home" />
-                  </Link>
+                  <NavLink to="/" end>
+                    {({ isActive }) => (
+                      <>
+                        <img className="w-5" src={isActive ? HomeActiveIcon : HomeIcon} alt="Home" />
+                      </>
+                    )}
+                  </NavLink>
                 </li>
                 <li className="text-white">
-                  <Link to="/movies">
-                    <img className="w-5" src={CategoryMovie} alt="Movies" />
-                  </Link>
+                  <NavLink to="/movies">
+                    {({ isActive }) => (
+                      <>
+                        <img className="w-5" src={isActive ? CategoryMovieActive : CategoryMovie} alt="Movies" />
+                      </>
+                    )}
+                  </NavLink>
                 </li>
                 <li className="text-white">
-                  <Link to="/tv-series">
-                    <img className="w-5"  src={CategoryTV} alt="TV Series" />
-                  </Link>
+                  <NavLink to="/tv-series">
+                    {({ isActive }) => (
+                      <>
+                        <img className="w-5" src={isActive ? CategoryTVActive : CategoryTV} alt="TV Series" />
+                      </>
+                    )}
+                  </NavLink>
                 </li>
                 <li className="text-white">
-                  <Link to="/bookmarks">
-                    <img className="w-5" src={Bookmark} alt="Bookmark" />
-                  </Link>
+                  <NavLink to="/bookmarks">
+                    {({ isActive }) => (
+                      <>
+                        <img className="w-5" src={isActive ? BookmarkActive : Bookmark} alt="Bookmark" />
+                      </>
+                    )}
+                  </NavLink>
                 </li>
               </ul>
             </div>
