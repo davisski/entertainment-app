@@ -73,8 +73,8 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
                 </svg>
               </button>
 
-              <Link to="/account">
-                <img className="w-5 rounded-r-full" src={Avatar} alt="Account" />
+              <Link  to="/account">
+                <img className="w-10 h-10 border-1 border-white rounded-full" src={Avatar} alt="Account" />
               </Link>
             </div>
             {/* Account */}
