@@ -17,6 +17,7 @@ import { SearchComponent } from "./components/SearchComponent";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { TrendingMoviesProvider } from "./contexts/TrendingMovieContext";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -53,7 +54,6 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
 
             {/* Account */}
             <div className="">
-
 
               {/* Theme switch */}
               <button className="text-white" onClick={toggleTheme}>
@@ -96,7 +96,9 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <LayoutContent>{children}</LayoutContent>
+      <TrendingMoviesProvider>
+        <LayoutContent>{children}</LayoutContent>
+      </TrendingMoviesProvider>
     </ThemeProvider>
   );
 }

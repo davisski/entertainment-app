@@ -6,11 +6,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import {useTrendingMovies} from "~/contexts/TrendingMovieContext";
 
 
 export function Home() {
   const maxRecommended = 16;
-
+  const { trendingMovies } = useTrendingMovies();
   return (
     <>
       <div className="mb-6">
@@ -26,7 +27,15 @@ export function Home() {
           onSwiper={(swiper) => console.log(swiper)}
           className="overflow-visible!"
         >
-      <SwiperSlide className="w-117.5!">
+          {trendingMovies.map((movie, index) => (
+            <SwiperSlide key={index} className="w-117.5!">
+              <TrendingCardComponent movie={movie} key={movie.id} />
+            </SwiperSlide>
+          ))}
+      {/* <SwiperSlide className="w-117.5!">
+        <TrendingCardComponent />
+      </SwiperSlide> */}
+      {/* <SwiperSlide className="w-117.5!">
         <TrendingCardComponent />
       </SwiperSlide>
       <SwiperSlide className="w-117.5!">
@@ -37,10 +46,7 @@ export function Home() {
       </SwiperSlide>
       <SwiperSlide className="w-117.5!">
         <TrendingCardComponent />
-      </SwiperSlide>
-      <SwiperSlide className="w-117.5!">
-        <TrendingCardComponent />
-      </SwiperSlide>
+      </SwiperSlide> */}
     </Swiper>
       </div>
       <div className="flex flex-col">
