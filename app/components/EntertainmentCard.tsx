@@ -14,7 +14,7 @@ export const EntertainmentCard = () => {
     
             <div className="relative h-43.5 block w-full">
                 <img src={mediumThumbnail} className="w-full z-10 h-43.5 block" alt="Thumbnail" />
-                {isHovered && ( <HoverComponent translate={{ x: 50, y: 50 }} top={50} left={46} />)}
+                {isHovered && ( <HoverComponent small />)}
             </div>
             <div className="flex flex-col w-full">
                 <CardInfoComponent year="2019" category="Movie" contentCategory="PG" />
