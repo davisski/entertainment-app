@@ -23,8 +23,8 @@ export const TrendingCardComponent = ({ movie }: { movie: any }) => {
     return (
       <div onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)} className="w-full relative rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full flex items-end justify-start bg-cover bg-center" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})` }}>
           {mouseEnter && (
-            <HoverComponent translate={{ x: 40, y: 50 }} top={50} left={40} />
-          )}
+            <HoverComponent small={false} />
+         )}
 
         <BookmarkComponent />
         <div className="flex flex-col">
