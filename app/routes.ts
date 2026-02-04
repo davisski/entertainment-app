@@ -5,4 +5,5 @@ export default [
     route("movies", "routes/movies.tsx"),
     route("tv-series", "routes/series.tsx"),
     route("bookmarks", "routes/bookmarks.tsx"),
+    route("account", "routes/account.tsx"),
 ] satisfies RouteConfig;
