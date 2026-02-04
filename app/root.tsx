@@ -18,6 +18,7 @@ import { MoviesProvider } from "./contexts/MovieContext";
 import { TrendingMoviesProvider } from "./contexts/TrendingMovieContext";
 import { SeriesProvider } from "./contexts/SeriesContext";
 import { BookmarkProvider } from "./contexts/BookmarkContext";
+import { SearchProvider } from "./contexts/SearchContext";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -29,7 +30,8 @@ const AppProviders = composeProviders(
   TrendingMoviesProvider,
   MoviesProvider,
   SeriesProvider,
-  BookmarkProvider
+  BookmarkProvider,
+  SearchProvider
 );
 
 export const links: Route.LinksFunction = () => [
