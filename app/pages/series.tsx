@@ -16,7 +16,7 @@ export function Series() {
             <div className="flex flex-col gap-y-10">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-6 pr-8">
                     {series.map((show) => (
-                        <EntertainmentCard key={show.id} {...show} />
+                        <EntertainmentCard key={show.id} id={show.id} title={show.name} release_date={show.first_air_date} media_type={show.media_type} poster_path={show.poster_path} />
                     ))}
                 </div>
             </div>
