@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BookmarkComponent } from "~/components/BookmarkComponent";
 import { CardInfoComponent } from "~/components/CardInfoComponent";
 import { HoverComponent } from "./HoverComponent";
-
+import { Helpers } from "../helpers";
 export const TrendingCardComponent = ({ movie }: { movie: any }) => {
     const [mouseEnter, setMouseEnter] = useState(false);
 
@@ -19,6 +19,7 @@ export const TrendingCardComponent = ({ movie }: { movie: any }) => {
       title = movie.title;
     }
 
+    title = Helpers.truncateText(title, 30);
 
     return (
       <div onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)} className="w-full relative rounded-xl min-w-117.5 p-6 max-w-117.5 min-h-57.5 max-h-57.5 h-full flex items-end justify-start bg-cover bg-center" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})` }}>
