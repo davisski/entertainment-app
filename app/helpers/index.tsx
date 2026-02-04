@@ -3,6 +3,7 @@
 export class Helpers {
 
     static truncateText(text: string, maxLength: number): string {
+        if(!text) return '';
         if (text.length <= maxLength) {
             return text;
         }
