@@ -5,15 +5,15 @@ import { BookmarkComponent } from "./BookmarkComponent";
 import playIcon from "../img/play-icon.svg";
 import { Helpers } from "../helpers";
 
-export const EntertainmentCard = ({ title, release_date, media_type, contentCategory, poster_path } : { title: string; release_date: string; media_type: string; contentCategory: string; poster_path: string; }) => {
+export const EntertainmentCard = ({id, title, release_date, media_type, contentCategory, poster_path } : { id: number; title: string; release_date: string; media_type: string; contentCategory: string; poster_path: string; }) => {
     const { isDark } = useTheme();
     const [isHovered, setIsHovered] = useState(false);
 
     let cardTitle = Helpers.truncateText(title, 25);
     return (
         <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 flex flex-col items-center overflow-hidden relative`}>
-            <BookmarkComponent />
-    
+            <BookmarkComponent id={id} />
+
             <div className="relative min-h-43.5 block w-full bg-cover bg-top" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})` }}>
                 {isHovered && ( 
                     <>

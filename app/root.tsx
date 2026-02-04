@@ -17,6 +17,7 @@ import { SearchComponent } from "./components/SearchComponent";
 import { MoviesProvider } from "./contexts/MovieContext";
 import { TrendingMoviesProvider } from "./contexts/TrendingMovieContext";
 import { SeriesProvider } from "./contexts/SeriesContext";
+import { BookmarkProvider } from "./contexts/BookmarkContext";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -27,7 +28,8 @@ const AppProviders = composeProviders(
   ThemeProvider,
   TrendingMoviesProvider,
   MoviesProvider,
-  SeriesProvider
+  SeriesProvider,
+  BookmarkProvider
 );
 
 export const links: Route.LinksFunction = () => [
