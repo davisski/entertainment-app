@@ -34,7 +34,7 @@ export const TrendingCardComponent = ({ movie }: { movie: any }) => {
             </>
          )}
 
-        <BookmarkComponent />
+        <BookmarkComponent id={movie.id} />
         <div className="flex flex-col">
           <CardInfoComponent year={year} category={movie.media_type} contentCategory='-' />
           <h3 className="text-white text-[24px]">{title}</h3>
