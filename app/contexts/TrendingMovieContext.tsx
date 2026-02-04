@@ -53,7 +53,6 @@ export function TrendingMoviesProvider({ children }: { children: ReactNode }) {
 
         fetchTrendingMovies();
     }, [isHydrated, isLoading, trendingMovies.length]);
-
     return (
         <TrendingMoviesContext.Provider value={{ trendingMovies, setTrendingMovies, isLoading }}>
             {children}

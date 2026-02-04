@@ -1,7 +1,13 @@
 import { EntertainmentCard } from "../components/EntertainmentCard";
+import { useMovies } from "~/contexts/MovieContext";
 
-const maxRecommended = 16;
 export function Movies() {
+    const { movies, isLoading } = useMovies();
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
             <div className="mb-6">
@@ -9,8 +15,8 @@ export function Movies() {
             </div>
             <div className="flex flex-col gap-y-10">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-10 pr-8">
-                    {Array.from({ length: maxRecommended }).map((_, index) => (
-                        <EntertainmentCard key={index} />
+                    {movies.map((movie) => (
+                        <EntertainmentCard key={movie.id} {...movie} />
                     ))}
                 </div>
             </div>

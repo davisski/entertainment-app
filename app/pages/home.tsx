@@ -7,10 +7,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import {useTrendingMovies} from "~/contexts/TrendingMovieContext";
+import {useMovies} from "~/contexts/MovieContext";
 
 
 export function Home() {
-  const maxRecommended = 16;
+  const { movies, isLoading } = useMovies();
   const { trendingMovies } = useTrendingMovies();
   return (
     <>
@@ -32,28 +33,13 @@ export function Home() {
               <TrendingCardComponent movie={movie} key={movie.id} />
             </SwiperSlide>
           ))}
-      {/* <SwiperSlide className="w-117.5!">
-        <TrendingCardComponent />
-      </SwiperSlide> */}
-      {/* <SwiperSlide className="w-117.5!">
-        <TrendingCardComponent />
-      </SwiperSlide>
-      <SwiperSlide className="w-117.5!">
-        <TrendingCardComponent />
-      </SwiperSlide>
-      <SwiperSlide className="w-117.5!">
-        <TrendingCardComponent />
-      </SwiperSlide>
-      <SwiperSlide className="w-117.5!">
-        <TrendingCardComponent />
-      </SwiperSlide> */}
     </Swiper>
       </div>
       <div className="flex flex-col">
           <h2 className="text-white text-[24px] mb-8">Recommended for you</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-10 pr-8">
-            {Array.from({ length: maxRecommended }).map((_, index) => (
-              <EntertainmentCard key={index} />
+            {movies.map((movie) => (
+              <EntertainmentCard key={movie.id} {...movie} />
             ))}
           </div>
       </div>
