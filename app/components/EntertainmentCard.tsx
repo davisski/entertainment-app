@@ -5,7 +5,7 @@ import { BookmarkComponent } from "./BookmarkComponent";
 import playIcon from "../img/play-icon.svg";
 import { Helpers } from "../helpers";
 
-export const EntertainmentCard = ({id, title, release_date, media_type, contentCategory, poster_path } : { id: number; title: string; release_date: string; media_type: string; contentCategory: string; poster_path: string; }) => {
+export const EntertainmentCard = ({id, title, release_date, media_type, poster_path } : { id: number; title: string; release_date: string; media_type: string; poster_path: string; }) => {
     const { isDark } = useTheme();
     const [isHovered, setIsHovered] = useState(false);
 
@@ -27,7 +27,7 @@ export const EntertainmentCard = ({id, title, release_date, media_type, contentC
                 )}
             </div>
             <div className="flex flex-col w-full">
-                <CardInfoComponent year={release_date} category={media_type} contentCategory={contentCategory} />
+                <CardInfoComponent year={release_date} category={media_type} contentCategory={''} />
                 <h3 className={`text-lg ${isDark ? 'text-white' : 'text-blue-900'}`}>
                     {cardTitle}
                 </h3>
