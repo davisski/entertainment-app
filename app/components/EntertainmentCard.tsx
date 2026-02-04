@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import { CardInfoComponent } from "./CardInfoComponent";
 import { BookmarkComponent } from "./BookmarkComponent";
-import { HoverComponent } from "./HoverComponent";
+import playIcon from "../img/play-icon.svg";
 import { Helpers } from "../helpers";
 
 export const EntertainmentCard = ({ title, release_date, media_type, contentCategory, poster_path } : { title: string; release_date: string; media_type: string; contentCategory: string; poster_path: string; }) => {
@@ -15,7 +15,16 @@ export const EntertainmentCard = ({ title, release_date, media_type, contentCate
             <BookmarkComponent />
     
             <div className="relative min-h-43.5 block w-full bg-cover bg-top" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})` }}>
-                {isHovered && ( <HoverComponent small />)}
+                {isHovered && ( 
+                    <>
+                        <div className="absolute w-full h-full z-20 top-0 left-0 bg-black opacity-50 flex items-center justify-center"></div>
+                        <div className="absolute z-30 w-29.25 h-12 bg-white opacity-50 flex items-center top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] justify-evenly gap-4 rounded-full"></div>
+                        <div className={`absolute z-40 top-[50%] left-[46%] translate-x-[-50%] translate-y-[-50%] flex items-center gap-4`}>
+                            <img className="h-7.5 w-7.5" src={playIcon} alt="Play" />
+                            <span className="text-white">Play</span>
+                        </div>
+                    </>
+                )}
             </div>
             <div className="flex flex-col w-full">
                 <CardInfoComponent year={release_date} category={media_type} contentCategory={contentCategory} />
