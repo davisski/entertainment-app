@@ -14,10 +14,21 @@ import Avatar from "./img/image-avatar.png";
 import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 import { NavigationComponent } from "./components/NaviagtionComponent";
 import { SearchComponent } from "./components/SearchComponent";
+import { MoviesProvider } from "./contexts/MovieContext";
+import { TrendingMoviesProvider } from "./contexts/TrendingMovieContext";
+import { SeriesProvider } from "./contexts/SeriesContext";
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { TrendingMoviesProvider } from "./contexts/TrendingMovieContext";
+
+import { composeProviders } from "./providers";
+
+const AppProviders = composeProviders(
+  ThemeProvider,
+  TrendingMoviesProvider,
+  MoviesProvider,
+  SeriesProvider
+);
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -95,11 +106,9 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider>
-      <TrendingMoviesProvider>
-        <LayoutContent>{children}</LayoutContent>
-      </TrendingMoviesProvider>
-    </ThemeProvider>
+    <AppProviders>
+      <LayoutContent>{children}</LayoutContent>
+    </AppProviders>
   );
 }
 
