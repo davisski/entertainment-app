@@ -3,10 +3,13 @@ import { useTheme } from "../contexts/ThemeContext";
 import { CardInfoComponent } from "./CardInfoComponent";
 import { BookmarkComponent } from "./BookmarkComponent";
 import { HoverComponent } from "./HoverComponent";
+import { Helpers } from "../helpers";
 
 export const EntertainmentCard = ({ title, release_date, media_type, contentCategory, poster_path } : { title: string; release_date: string; media_type: string; contentCategory: string; poster_path: string; }) => {
     const { isDark } = useTheme();
     const [isHovered, setIsHovered] = useState(false);
+
+    let cardTitle = Helpers.truncateText(title, 25);
     return (
         <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 flex flex-col items-center overflow-hidden relative`}>
             <BookmarkComponent />
@@ -16,7 +19,9 @@ export const EntertainmentCard = ({ title, release_date, media_type, contentCate
             </div>
             <div className="flex flex-col w-full">
                 <CardInfoComponent year={release_date} category={media_type} contentCategory={contentCategory} />
-                <h3 className={`text-lg ${isDark ? 'text-white' : 'text-blue-900'}`}>{title}</h3>
+                <h3 className={`text-lg ${isDark ? 'text-white' : 'text-blue-900'}`}>
+                    {cardTitle}
+                </h3>
             </div>
         </div>
     )
