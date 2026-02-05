@@ -3,6 +3,7 @@ import { BookmarkComponent } from "~/components/BookmarkComponent";
 import { CardInfoComponent } from "~/components/CardInfoComponent";
 import playIcon from "../img/play-icon.svg";
 import { Helpers } from "../helpers";
+import { RatingCardComponent } from "./RatingCardComponent";
 export const TrendingCardComponent = ({ movie }: { movie: any }) => {
     const [mouseEnter, setMouseEnter] = useState(false);
 
@@ -33,7 +34,7 @@ export const TrendingCardComponent = ({ movie }: { movie: any }) => {
               </div>
             </>
          )}
-
+        <RatingCardComponent rating={movie.vote_average} />
         <BookmarkComponent id={movie.id} />
         <div className="flex flex-col">
           <CardInfoComponent year={year} category={movie.media_type} contentCategory='-' />

@@ -4,8 +4,9 @@ import { CardInfoComponent } from "./CardInfoComponent";
 import { BookmarkComponent } from "./BookmarkComponent";
 import playIcon from "../img/play-icon.svg";
 import { Helpers } from "../helpers";
+import { RatingCardComponent } from "./RatingCardComponent";
 
-export const EntertainmentCard = ({id, title, release_date, media_type, poster_path } : { id: number; title: string; release_date: string; media_type: string; poster_path: string; }) => {
+export const EntertainmentCard = ({id, title, release_date, media_type, poster_path, vote_average} : { id: number; title: string; release_date: string; media_type: string; poster_path: string; vote_average: number; }) => {
     const { isDark } = useTheme();
     const [isHovered, setIsHovered] = useState(false);
 
@@ -25,6 +26,7 @@ export const EntertainmentCard = ({id, title, release_date, media_type, poster_p
                         </div>
                     </>
                 )}
+                <RatingCardComponent rating={vote_average} />
             </div>
             <div className="flex flex-col w-full">
                 <CardInfoComponent year={release_date} category={media_type} contentCategory={''} />
