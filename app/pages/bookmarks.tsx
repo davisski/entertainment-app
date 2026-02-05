@@ -23,11 +23,11 @@ export function Bookmarks() {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-10 pr-8">
                     {filteredResults.length > 0 ? (
                         filteredResults.map((item) => (
-                            <EntertainmentCard key={item.id} id={item.id} title={item.name ?? item.title} release_date={item.first_air_date ?? item.release_date} media_type={item.media_type} poster_path={item.poster_path} />
+                            <EntertainmentCard key={item.id} id={item.id} title={item.name ?? item.title} release_date={item.first_air_date ?? item.release_date} media_type={item.media_type} poster_path={item.poster_path} vote_average={item.vote_average} />
                         ))
                     ) : (
                         combinedBookmarks.map((item) => (
-                            <EntertainmentCard key={item.id} id={item.id} title={item.name ?? item.title} release_date={item.first_air_date ?? item.release_date} media_type={item.media_type} poster_path={item.poster_path} />
+                            <EntertainmentCard key={item.id} id={item.id} title={item.name ?? item.title} release_date={item.first_air_date ?? item.release_date} media_type={item.media_type} poster_path={item.poster_path} vote_average={item.vote_average} />
                         ))
                     )}
                 </div>

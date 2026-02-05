@@ -8,6 +8,9 @@ export class Helpers {
             return text;
         }
         return text.slice(0, maxLength) + '...';
-    }    
+    }  
+    static toFixedDecimal(num: number, decimalPlaces: number): string {
+        return num.toFixed(decimalPlaces);
+    }  
 }
 

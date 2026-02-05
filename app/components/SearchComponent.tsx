@@ -22,7 +22,7 @@ export const SearchComponent = () => {
   const accountRoute = useMatch("/account");
 
   useEffect(() => {
-
+    setHidden(false);
     if(tvRoute){
       const filteredSeries = series.filter((show) =>
         show.name.toLowerCase().includes(query.toLowerCase())
@@ -47,12 +47,11 @@ export const SearchComponent = () => {
       setFilteredResults(filteredCombined);
     }
 
-    setHidden(false);
     if(accountRoute){
       setHidden(true);
     }
 
-  }, [tvRoute, movieRoute, accountRoute, bookmarksRoute, query]);
+  }, [tvRoute, movieRoute, accountRoute, hidden, bookmarksRoute, query]);
 
 
   return (
