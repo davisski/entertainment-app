@@ -7,10 +7,10 @@ import { useSeries } from "~/contexts/SeriesContext";
 import { useMovies } from "~/contexts/MovieContext";
 import { useBookmarks } from "~/contexts/BookmarkContext";
 
-
 export const SearchComponent = () => {
   const { isDark } = useTheme();
   const [query, setQuery] = useState('');
+  const [hidden, setHidden] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const { setFilteredResults } = useSearch();
   const { series } = useSeries();
@@ -19,6 +19,7 @@ export const SearchComponent = () => {
   const tvRoute = useMatch("/tv-series");
   const movieRoute = useMatch("/movies");
   const bookmarksRoute = useMatch("/bookmarks");
+  const accountRoute = useMatch("/account");
 
   useEffect(() => {
 
@@ -46,11 +47,15 @@ export const SearchComponent = () => {
       setFilteredResults(filteredCombined);
     }
 
-  }, [tvRoute, movieRoute, bookmarksRoute, query]);
+    if(accountRoute){
+      setHidden(true);
+    }
+
+  }, [tvRoute, movieRoute, accountRoute, bookmarksRoute, query]);
 
 
   return (
-    <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} h-8 gap-x-8 flex items-center mt-0 lg:mt-8`}>
+    <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} ${hidden ? 'hidden' : ''} h-8 gap-x-8 flex items-center mt-0 lg:mt-8`}>
         <img src={Search} alt="Search" />
         <input onInput={(e) => setQuery(e.currentTarget.value)} id="search-input" className={`px-2 py-2 caret-red-500 text-[24px] cursor-pointer w-9/10 ${isDark ? 'text-white' : 'text-white'} ${isHovered ? 'border-b-2 border-blue-500' : 'border-b-2 border-transparent'}`} type="text" placeholder="Search for movies or TV series" />
     </div>
