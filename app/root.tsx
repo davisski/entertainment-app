@@ -61,11 +61,9 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
       </head>
       <body ref={bodyRef} className="pt-8 m-auto max-w-360 pl-8 flex lg:flex-row flex-col gap-x-9 pb-8 h-screen">
         <div className="lg:d-none lg:pr-0 block pr-8">
-          <div id="sidebar" className={`lg:mb-0 mb-6 lg:w-24 w-full lg:rounded-[20px] lg:py-[33.7px] sm:py-[23.2px] md:py-[23.2px] rounded-[10px] lg:h-full h-18 flex lg:flex-col flex-row items-center justify-between lg:px-0 px-6 ${isDark ? 'bg-blue-900' : 'bg-white-300'}`}>
+          <div id="sidebar" className={`lg:mb-0 mb-6 fixed lg:w-24 w-full lg:rounded-[20px] lg:py-[33.7px] sm:py-[23.2px] md:py-[23.2px] z-10 rounded-[10px] lg:h-185 h-18 flex lg:flex-col flex-row items-center justify-between lg:px-0 px-6 ${isDark ? 'bg-blue-900' : 'bg-white-300'}`}>
             <div className="flex lg:flex-col w-full items-center">
-              <Link to="/">
-                <img src={Logo} alt="Logo" className="lg:mb-6 mb-0 w-8"/>
-              </Link>
+              <img src={Logo} alt="Logo" className="lg:mb-6 mb-0 w-8"/>
               <NavigationComponent />              
             </div>
 
@@ -97,7 +95,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
             {/* Account */}
           </div>
         </div>
-        <main className="w-full flex flex-col gap-y-10">
+        <main className="w-full flex flex-col gap-y-10 ml-24">
           <SearchComponent />
           <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full`}>
             {children}
