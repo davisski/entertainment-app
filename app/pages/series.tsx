@@ -19,11 +19,11 @@ export function Series() {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-6 pr-8">
                     {filteredResults.length > 0 ? (
                         filteredResults.map((show) => (
-                            <EntertainmentCard key={show.id} id={show.id} title={show.name} release_date={show.first_air_date} media_type={show.media_type} poster_path={show.poster_path} />
+                            <EntertainmentCard key={show.id} id={show.id} title={show.name} release_date={show.first_air_date} media_type={show.media_type} poster_path={show.poster_path} vote_average={show.vote_average} />
                         ))
                     ) : (
                         series.map((show) => (
-                            <EntertainmentCard key={show.id} id={show.id} title={show.name} release_date={show.first_air_date} media_type={show.media_type} poster_path={show.poster_path} />
+                            <EntertainmentCard key={show.id} id={show.id} title={show.name} release_date={show.first_air_date} media_type={show.media_type} poster_path={show.poster_path} vote_average={show.vote_average} />
                         ))
                     )}
                 </div>
