@@ -20,9 +20,9 @@ export function Home() {
       </div>
       <div className="mb-10 w-full overflow-hidden">
         <Swiper
-          spaceBetween={80}
-          slidesPerView={2.5}
-          slidesOffsetAfter={160}
+          spaceBetween={40}
+          slidesPerView={2}
+          slidesOffsetAfter={0}
           slidesOffsetBefore={0}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
@@ -33,7 +33,7 @@ export function Home() {
               <TrendingCardComponent movie={movie} key={movie.id} />
             </SwiperSlide>
           ))}
-    </Swiper>
+        </Swiper>
       </div>
       <div className="flex flex-col">
           <h2 className="text-white text-[24px] mb-8">Recommended for you</h2>
