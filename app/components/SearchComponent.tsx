@@ -55,7 +55,7 @@ export const SearchComponent = () => {
 
 
   return (
-    <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} ${hidden ? 'hidden' : ''} h-12 gap-x-8 flex items-center mt-0 lg:mt-8 sticky z-999 top-0 px-6 lg:px-0 w-full`}>
+    <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} ${hidden ? 'hidden' : ''} h-12 gap-x-8 flex items-center left-[11%] w-10/12 mt-0 lg:mt-8 sticky z-999 top-0 px-6 lg:px-0`}>
         <img src={Search} alt="Search" />
         <input onInput={(e) => setQuery(e.currentTarget.value)} id="search-input" className={`px-2 py-2 caret-red-500 text-[24px] cursor-pointer w-9/10 ${isDark ? 'text-white' : 'text-white'} ${isHovered ? 'border-b-2 border-blue-500' : 'border-b-2 border-transparent'}`} type="text" placeholder="Search for movies or TV series" />
     </div>
