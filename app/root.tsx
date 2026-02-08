@@ -112,7 +112,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
         </div>
         <main className="flex flex-col max-w-360">
           <SearchComponent />
-          <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full pl-${justifyStart ? '32' : '42'} pt-9`}>
+          <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full ${justifyStart ? 'pl-32' : 'pl-42'} pt-9`}>
             {children}
           </section>
         </main>
