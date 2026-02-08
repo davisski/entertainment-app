@@ -6,6 +6,7 @@ import { SeriesProvider } from "../contexts/SeriesContext";
 import { BookmarkProvider } from "../contexts/BookmarkContext";
 import { SearchProvider } from "../contexts/SearchContext";
 import { MoviesGenreProvider } from "../contexts/MovieGenreContext";
+import { SeriesGenreProvider } from "../contexts/SeriesGenreContext";
 
 
 type Provider = ({ children }: { children: ReactNode }) => JSX.Element;
@@ -25,5 +26,6 @@ export const AppProviders = composeProviders(
   SeriesProvider,
   BookmarkProvider,
   SearchProvider,
-  MoviesGenreProvider
+  MoviesGenreProvider,
+  SeriesGenreProvider
 );
