@@ -1,4 +1,4 @@
-import { type RouteConfig, index, route } from "@react-router/dev/routes";
+import { type RouteConfig, index, prefix, route } from "@react-router/dev/routes";
 
 export default [
     index("routes/home.tsx"),
@@ -6,4 +6,5 @@ export default [
     route("tv-series", "routes/series.tsx"),
     route("bookmarks", "routes/bookmarks.tsx"),
     route("account", "routes/account.tsx"),
+    route(":mediaType/:mediaId", "routes/media/show.tsx")
 ] satisfies RouteConfig;

@@ -5,14 +5,17 @@ import { BookmarkComponent } from "./BookmarkComponent";
 import playIcon from "../img/play-icon.svg";
 import { Helpers } from "../helpers";
 import { RatingCardComponent } from "./RatingCardComponent";
+import { Link } from "react-router";
 
 export const EntertainmentCard = ({id, title, release_date, media_type, poster_path, vote_average} : { id: number; title: string; release_date: string; media_type: string; poster_path: string; vote_average: number; }) => {
     const { isDark } = useTheme();
     const [isHovered, setIsHovered] = useState(false);
 
     let cardTitle = Helpers.truncateText(title, 25);
+    let mediaType = media_type === 'tv' ? 'tv-series' : 'movies';
+
     return (
-        <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 min-w-70 flex flex-col items-center overflow-hidden relative`}>
+        <Link to={`/${mediaType}/${id}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 min-w-70 flex flex-col items-center overflow-hidden relative`}>
             <BookmarkComponent id={id} />
 
             <div className="relative min-h-43.5 block w-full bg-cover bg-top" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})` }}>
@@ -34,6 +37,6 @@ export const EntertainmentCard = ({id, title, release_date, media_type, poster_p
                     {cardTitle}
                 </h3>
             </div>
-        </div>
+        </Link>
     )
 }
