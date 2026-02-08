@@ -5,6 +5,7 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 interface SeriesContextType {
   series: any[];
   setSeries: (series: any[]) => void;
+  getSerie: (id: string) => any | undefined;
   isLoading: boolean;
 }
 const SeriesContext = createContext<SeriesContextType | undefined>(undefined);
@@ -52,8 +53,11 @@ export function SeriesProvider({ children }: { children: ReactNode }) {
 
         fetchSeries();
     }, [isHydrated, isLoading, series.length]);
+
+    const getSerie = (id: string) => series.find(serie => serie.id === Number(id));
+
     return (
-        <SeriesContext.Provider value={{ series, setSeries, isLoading }}>
+        <SeriesContext.Provider value={{ series, setSeries, isLoading, getSerie }}>
             {children}
         </SeriesContext.Provider>
     );

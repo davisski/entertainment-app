@@ -5,6 +5,7 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 interface MoviesContextType {
   movies: any[];
   setMovies: (movies: any[]) => void;
+  getMovie: (id: string) => any | undefined;
   isLoading: boolean;
 }
 const MoviesContext = createContext<MoviesContextType | undefined>(undefined);
@@ -52,8 +53,10 @@ export function MoviesProvider({ children }: { children: ReactNode }) {
 
         fetchMovies();
     }, [isHydrated, isLoading, movies.length]);
+
+    const getMovie = (id: string) => movies.find(movie => movie.id === Number(id));
     return (
-        <MoviesContext.Provider value={{ movies, setMovies, isLoading }}>
+        <MoviesContext.Provider value={{ movies, setMovies, isLoading, getMovie }}>
             {children}
         </MoviesContext.Provider>
     );
