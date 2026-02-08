@@ -17,12 +17,11 @@ export function Movies() {
         let moviesToFilter = filteredResults.length > 0 ? filteredResults : movies;
 
         // If a genre is selected, filter by genre
-        if (currentGenre !== "") {
-            return moviesToFilter.filter((movie) =>
-                movie.genre_ids.includes(Number(currentGenre))
-            );
-        }
-        return moviesToFilter;
+        if (currentGenre == "") return moviesToFilter;
+        
+        return moviesToFilter.filter((movie) =>
+            movie.genre_ids.includes(Number(currentGenre))
+        );
     }, [filteredResults, movies, currentGenre]);
 
     const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
