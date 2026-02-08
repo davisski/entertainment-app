@@ -1,10 +1,19 @@
 import type { Route } from "./+types/show";
 import { Show } from "~/pages/media/show";
 
+export async function clientLoader({
+  params,
+}: Route.ClientLoaderArgs) {
+  const mediaType = params.mediaType == 'tv-series' ? 'tv' : 'movie';
+  const res = await fetch(`https://api.themoviedb.org/3/${mediaType}/${params.mediaId}/reviews?api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
+  const reviews = await res.json();
+  return reviews;
+}
+
 export function meta({params}: Route.MetaArgs) {
   return [{ title: `Media ${params.mediaId}` }];
 }
 
-export default function Page({params}: Route.ComponentProps) {
-  return <Show mediaId={params.mediaId} media={params.mediaType || ''} />;
+export default function Page({params, loaderData}: Route.ComponentProps) {
+  return <Show mediaId={params.mediaId} media={params.mediaType || ''} reviews={loaderData} />;
 }
