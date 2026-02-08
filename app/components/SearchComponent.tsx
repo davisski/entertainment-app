@@ -23,6 +23,7 @@ export const SearchComponent = () => {
   const movieRoute = useMatch("/movies");
   const bookmarksRoute = useMatch("/bookmarks");
   const accountRoute = useMatch("/account");
+  const mediaRoute = useMatch("/:mediaType/:mediaId");
 
   useEffect(() => {
     const handleUserScroll = (e : Event) => {
@@ -69,7 +70,7 @@ export const SearchComponent = () => {
       setFilteredResults(filteredCombined);
     }
 
-    if(accountRoute){
+    if(mediaRoute || accountRoute){
       setHidden(true);
     }
 
