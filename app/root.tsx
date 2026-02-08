@@ -12,29 +12,14 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "./img/logo.svg";
 
 import Avatar from "./img/image-avatar.png";
-import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 import { NavigationComponent } from "./components/NaviagtionComponent";
 import { SearchComponent } from "./components/SearchComponent";
-import { MoviesProvider } from "./contexts/MovieContext";
-import { TrendingMoviesProvider } from "./contexts/TrendingMovieContext";
-import { SeriesProvider } from "./contexts/SeriesContext";
-import { BookmarkProvider } from "./contexts/BookmarkContext";
-import { SearchProvider } from "./contexts/SearchContext";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { useTheme } from "./contexts/ThemeContext";
 
-import { composeProviders } from "./providers";
-
-const AppProviders = composeProviders(
-  ThemeProvider,
-  TrendingMoviesProvider,
-  MoviesProvider,
-  SeriesProvider,
-  BookmarkProvider,
-  SearchProvider
-);
-
+import { AppProviders } from "./providers";
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -112,7 +97,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
         </div>
         <main className="flex flex-col max-w-360">
           <SearchComponent />
-          <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full ${justifyStart ? 'pl-32' : 'pl-42'} pt-9`}>
+          <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} min-w-355 ${justifyStart ? 'pl-32' : 'pl-42'} pt-9`}>
             {children}
           </section>
         </main>
