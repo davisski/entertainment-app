@@ -6,8 +6,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatch,
 } from "react-router";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./img/logo.svg";
 
 import Avatar from "./img/image-avatar.png";
@@ -50,6 +51,20 @@ export const links: Route.LinksFunction = () => [
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const { isDark, toggleTheme } = useTheme();
   const bodyRef = useRef<HTMLBodyElement>(null);
+  const [justifyStart, setJustifyStart] = useState(false);
+
+  const tvRoute = useMatch("/tv-series");
+  const movieRoute = useMatch("/movies");
+  const bookmarksRoute = useMatch("/bookmarks");
+  const accountRoute = useMatch("/account");
+
+  useEffect(() => {
+    if (tvRoute || movieRoute || bookmarksRoute || accountRoute) {
+      setJustifyStart(true);
+    } else {
+      setJustifyStart(false);
+    }
+  }, [tvRoute, movieRoute, bookmarksRoute, accountRoute, justifyStart]);
 
   return (
     <html lang="en">
@@ -59,7 +74,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body ref={bodyRef} className="pt-8 max-w-360 flex lg:flex-row flex-col justify-end gap-x-9 pb-8 h-screen">
+      <body ref={bodyRef} className={`pt-8 max-w-360 ${justifyStart ? 'justify-start' : 'justify-end'} flex lg:flex-row flex-col  gap-x-9 pb-8 h-screen`}>
         <div className="lg:d-none lg:pr-0 block pr-8">
           <div id="sidebar" className={`lg:mb-0 mb-6 fixed lg:w-24 w-full left-8 lg:rounded-[20px] lg:py-[33.7px] sm:py-[23.2px] md:py-[23.2px] z-10 rounded-[10px] lg:h-185 h-18 flex lg:flex-col flex-row items-center justify-between lg:px-0 px-6 ${isDark ? 'bg-blue-900' : 'bg-white-300'}`}>
             <div className="flex lg:flex-col w-full items-center">
@@ -97,7 +112,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
         </div>
         <main className="flex flex-col max-w-360">
           <SearchComponent />
-          <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full pl-42 pt-9`}>
+          <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} w-full pl-${justifyStart ? '32' : '42'} pt-9`}>
             {children}
           </section>
         </main>
