@@ -1,4 +1,12 @@
 import type { ReactNode } from 'react';
+import { ThemeProvider } from "../contexts/ThemeContext";
+import { MoviesProvider } from "../contexts/MovieContext";
+import { TrendingMoviesProvider } from "../contexts/TrendingMovieContext";
+import { SeriesProvider } from "../contexts/SeriesContext";
+import { BookmarkProvider } from "../contexts/BookmarkContext";
+import { SearchProvider } from "../contexts/SearchContext";
+import { MoviesGenreProvider } from "../contexts/MovieGenreContext";
+
 
 type Provider = ({ children }: { children: ReactNode }) => JSX.Element;
 
@@ -9,3 +17,13 @@ export function composeProviders(...providers: Provider[]) {
     }, children);
   };
 }
+
+export const AppProviders = composeProviders(
+  ThemeProvider,
+  TrendingMoviesProvider,
+  MoviesProvider,
+  SeriesProvider,
+  BookmarkProvider,
+  SearchProvider,
+  MoviesGenreProvider
+);

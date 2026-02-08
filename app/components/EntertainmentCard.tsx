@@ -12,7 +12,7 @@ export const EntertainmentCard = ({id, title, release_date, media_type, poster_p
 
     let cardTitle = Helpers.truncateText(title, 25);
     return (
-        <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 flex flex-col items-center overflow-hidden relative`}>
+        <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 min-w-70 flex flex-col items-center overflow-hidden relative`}>
             <BookmarkComponent id={id} />
 
             <div className="relative min-h-43.5 block w-full bg-cover bg-top" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})` }}>
