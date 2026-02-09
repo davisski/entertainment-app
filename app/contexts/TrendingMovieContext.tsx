@@ -5,6 +5,7 @@ interface TrendingMoviesContextType {
   trendingMovies: any[];
   setTrendingMovies: (movies: any[]) => void;
   isLoading: boolean;
+  getTrendingMovie: (id: string) => any | undefined;
 }
 
 const TrendingMoviesContext = createContext<TrendingMoviesContextType | undefined>(undefined);
@@ -53,8 +54,11 @@ export function TrendingMoviesProvider({ children }: { children: ReactNode }) {
 
         fetchTrendingMovies();
     }, [isHydrated, isLoading, trendingMovies.length]);
+
+    const getTrendingMovie = (id: string) => trendingMovies.find(movie => movie.id === Number(id));
+
     return (
-        <TrendingMoviesContext.Provider value={{ trendingMovies, setTrendingMovies, isLoading }}>
+        <TrendingMoviesContext.Provider value={{ trendingMovies, setTrendingMovies, isLoading, getTrendingMovie }}>
             {children}
         </TrendingMoviesContext.Provider>
     );
