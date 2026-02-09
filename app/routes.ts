@@ -6,5 +6,9 @@ export default [
     route("tv-series", "routes/series.tsx"),
     route("bookmarks", "routes/bookmarks.tsx"),
     route("account", "routes/account.tsx"),
-    route(":mediaType/:mediaId", "routes/media/show.tsx")
+    route(":mediaType/:mediaId", "routes/media/show.tsx"),
+    ...prefix("auth", [
+        route("login", "routes/auth/login.tsx"),
+        route("signup", "routes/auth/signup.tsx"),
+    ])
 ] satisfies RouteConfig;
