@@ -24,6 +24,7 @@ export const SearchComponent = () => {
   const bookmarksRoute = useMatch("/bookmarks");
   const accountRoute = useMatch("/account");
   const mediaRoute = useMatch("/:mediaType/:mediaId");
+  const isMediaPage = mediaRoute && mediaRoute.params.mediaType && mediaRoute.params.mediaId;
 
   useEffect(() => {
     const handleUserScroll = (e : Event) => {
@@ -70,11 +71,11 @@ export const SearchComponent = () => {
       setFilteredResults(filteredCombined);
     }
 
-    if(mediaRoute || accountRoute){
+    if(isMediaPage || accountRoute){
       setHidden(true);
     }
 
-  }, [tvRoute, movieRoute, accountRoute, hidden, bookmarksRoute, query]);
+  }, [tvRoute, movieRoute, accountRoute, hidden, bookmarksRoute, query, isMediaPage]);
 
 
   return (
