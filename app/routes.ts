@@ -10,5 +10,8 @@ export default [
     ...prefix("auth", [
         route("login", "routes/auth/login.tsx"),
         route("signup", "routes/auth/signup.tsx"),
-    ])
+    ]),
+    ...prefix("credit", [
+        route(':creditId', "routes/credit/show.tsx")
+    ]),
 ] satisfies RouteConfig;
