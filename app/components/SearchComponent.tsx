@@ -77,12 +77,11 @@ export const SearchComponent = () => {
 
   }, [tvRoute, movieRoute, accountRoute, hidden, bookmarksRoute, query, isMediaPage]);
 
-
   return (
     <div ref={searchRef} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} 
     className={`${isDark ? 'bg-blue-950' : 'bg-white-100'}
-    ${hidden ? 'hidden' : ''} flex items-center left-[11%] px-6 lg:px-0
-    ${searchActive ? 'p-2 h-20 fixed transition-all z-999999 top-0 mt-0 w-full' : 'sticky h-12 lg:mt-8 w-10/12'}`}>
+    ${hidden ? 'hidden' : ''} flex items-center left-0 px-6 lg:px-0 w-10/12 mb-6.5
+    ${searchActive ? 'p-2 h-20 sticky transition-all z-999999 top-0 mt-0 w-full' : 'sticky h-12 top-[40px]'}`}>
         <img className={`${searchActive ? 'pl-6' : ''}`} src={Search} alt="Search" />
         <input onInput={(e) => setQuery(e.currentTarget.value)} id="search-input" className={`px-2 py-2 caret-red-500 text-[24px] cursor-pointer w-9/10 
           ${isDark ? 'text-white' : 'text-white'} 

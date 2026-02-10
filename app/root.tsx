@@ -64,13 +64,13 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body ref={bodyRef} className={`pt-8 max-w-360 ${justifyStart ? 'justify-start' : 'justify-end'} flex lg:flex-row flex-col  gap-x-9 pb-8 h-screen`}>
+      <body ref={bodyRef} className={`pt-8 max-w-360 ${justifyStart ? 'justify-start' : 'justify-end'} relative m-auto flex lg:flex-row flex-col  gap-x-9 pb-8 h-screen`}>
         { sidebarShow && (
           <SidebarComponent />
         )}
         <main className="flex flex-col max-w-360">
-          <SearchComponent />
           <section className={`${isDark ? 'bg-blue-950' : 'bg-white-100'} min-w-355 ${justifyStart ? 'pl-32' : 'pl-42'} pt-9`}>
+          <SearchComponent />
             {children}
           </section>
         </main>
