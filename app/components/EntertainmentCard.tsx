@@ -15,7 +15,7 @@ export const EntertainmentCard = ({id, title, release_date, media_type, poster_p
     let mediaType = media_type === 'tv' ? 'tv-series' : 'movies';
 
     return (
-        <Link to={`/${mediaType}/${id}`} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 min-w-70 flex flex-col items-center overflow-hidden relative`}>
+        <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={`h-57.5 justify-between rounded-lg max-w-70 min-w-70 flex flex-col items-center overflow-hidden relative`}>
             <BookmarkComponent id={id} />
 
             <div className="relative min-h-43.5 block w-full bg-cover bg-top" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})` }}>
@@ -33,10 +33,10 @@ export const EntertainmentCard = ({id, title, release_date, media_type, poster_p
             </div>
             <div className="flex flex-col w-full">
                 <CardInfoComponent year={release_date} category={media_type} contentCategory={''} />
-                <h3 className={`text-lg ${isDark ? 'text-white' : 'text-blue-900'}`}>
+                <Link to={`/${mediaType}/${id}`}className={`text-lg ${isDark ? 'text-white' : 'text-blue-900'} hover:text-red-500`}>
                     {cardTitle}
-                </h3>
+                </Link>
             </div>
-        </Link>
+        </div>
     )
 }
