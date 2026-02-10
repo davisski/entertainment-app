@@ -3,7 +3,7 @@ import { useSeries } from "~/contexts/SeriesContext";
 import { useTrendingMovies } from "~/contexts/TrendingMovieContext";
 import { MediaShowComponent } from "~/components/MediaShowComponent";
 
-export function Show({media, mediaId, reviews, details}: {media: string; mediaId: string; reviews?: any, details?: any}) {
+export function Show({media, mediaId, reviews, details, credits}: {media: string; mediaId: string; reviews?: any, details?: any, credits?: any}) {
   if(media === 'movies') {
     const { getMovie } = useMovies();
     const { getTrendingMovie } = useTrendingMovies();
@@ -13,14 +13,14 @@ export function Show({media, mediaId, reviews, details}: {media: string; mediaId
       movie = getTrendingMovie(mediaId);
     }
     return (
-      <MediaShowComponent media={movie} overview={details.overview} reviews={reviews} />
+      <MediaShowComponent media={movie} overview={details.overview} reviews={reviews} credits={credits} />
     )
   }
   if(media === 'tv-series') {
     const { getSerie } = useSeries();
     const tvShow = getSerie(mediaId);
     return (
-      <MediaShowComponent media={tvShow} overview={details.overview} reviews={reviews} />
+      <MediaShowComponent media={tvShow} overview={details.overview} reviews={reviews} credits={credits} />
     )
   }
 }

@@ -15,7 +15,7 @@ import CategoryMovieHover from "../img/icon-nav-movies-hover.svg";
 
 export const NavigationComponent = () => {
 
-    const linkConfigs = [
+  const linkConfigs = [
     { label: 'Home', to: "/", icons: { active: HomeActiveIcon, default: HomeIcon, hover: HomeHoverIcon } },
     { label: 'Movies', to: "/movies", icons: { active: CategoryMovieActive, default: CategoryMovie, hover: CategoryMovieHover } },
     { label: 'TV Series', to: "/tv-series", icons: { active: CategoryTVActive, default: CategoryTV, hover: CategoryTVHover } },
