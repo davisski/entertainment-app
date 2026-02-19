@@ -1,6 +1,6 @@
 import {Link} from "react-router";
 import Logo from '../img/logo.svg';
-export const AuthComponent = ({title, children, actionText, linkText, to, linkDescription}: {title: string, children: React.ReactNode, actionText: string, linkText: string, to: string, linkDescription: string}) => {
+export const AuthComponent = ({title, children, actionText, linkText, to, linkDescription, onValidate}: {title: string, children: React.ReactNode, actionText: string, linkText: string, to: string, linkDescription: string, onValidate: (e: React.MouseEvent<HTMLButtonElement>) => void}) => {
   return (
     <div className="w-full flex flex-col items-center justify-center">
         <img src={Logo} alt="Logo" className="w-8 h-[25.6px]" />
@@ -9,7 +9,7 @@ export const AuthComponent = ({title, children, actionText, linkText, to, linkDe
             <div className="flex flex-col gap-y-6">
               {children}
             </div>
-            <button className="mt-10 w-full bg-red-500 h-12 text-white py-2 px-4 rounded">{actionText}</button>
+            <button onClick={onValidate} className="mt-10 hover:bg-white hover:text-blue-950 cursor-pointer w-full bg-red-500 h-12 text-white py-2 px-4 rounded">{actionText}</button>
             <div className="flex mt-6 gap-4 items-center justify-center">
                 <p className="m-0 text-sm">{linkDescription}</p>
                 <div>
