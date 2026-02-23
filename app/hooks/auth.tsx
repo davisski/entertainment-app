@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { sanitizeHtmlInput } from '../utils/sanitizer';
 interface ValidationErrors {
   email?: string;
   password?: string;
@@ -64,7 +64,8 @@ export function useAuthValidation() {
         newErrors.confirmPassword = '';
     }
 
-    setFormData({ ...formData, [name]: value });
+    const sanitizedValue = sanitizeHtmlInput(value);
+    setFormData({ ...formData, [name]: sanitizedValue });
     setErrors(newErrors);
   };
  
